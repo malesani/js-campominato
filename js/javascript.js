@@ -1,4 +1,12 @@
-var max = 100;
+//livello scelto dal utente
+var scelta = parseInt(prompt("difficolta? 0,1,2"))
+console.log("hai scelto il livello " + scelta)
+
+//ugualianza della funzione del livello con il var livello_config
+var livello_config = livello_scelto(scelta)
+
+//far partire il goico in base a i dati
+var max = livello_config;
 var numBombs = 16; 
  
 var tentativi = max - numBombs;
@@ -61,4 +69,19 @@ function BombsGenerator (numBombs, max){
 //funzione numeri random quantita bombe
 function getNum_bom (max){
   return Math.ceil(Math.random() * max)
+}
+
+//funzione per scegliere il livello
+function livello_scelto(nivel){
+  var nivel_seleccionado;
+  if(nivel === 0){
+    nivel_seleccionado = 100
+  }else if(nivel === 1){
+    nivel_seleccionado = 80
+  }else if(nivel === 2){
+    nivel_seleccionado = 50
+  }else{
+    alert("devi scegliere una difficolta")
+  } 
+  return nivel_seleccionado
 }
